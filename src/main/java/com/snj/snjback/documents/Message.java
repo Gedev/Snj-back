@@ -1,10 +1,8 @@
-package com.snj.snjback;
+package com.snj.snjback.documents;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.bson.types.ObjectId;
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -15,12 +13,12 @@ import java.time.LocalDate;
 @Document
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
-
+public class Message {
     @Id
     private ObjectId id;
+    @NonNull
+    private String content;
+    @CreatedDate
+    private LocalDate date;
 
-    private String firstname;
-    private String lastname;
-    private LocalDate birthdate;
 }
