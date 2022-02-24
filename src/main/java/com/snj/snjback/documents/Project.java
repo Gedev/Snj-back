@@ -5,21 +5,25 @@ import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.ArrayList;
+import java.time.LocalDate;
 
 @Data
 @Builder
 @Document
 @AllArgsConstructor
 @NoArgsConstructor
-public class Messaging {
+public class Project {
     @Id
     private ObjectId id;
     @NonNull
     private String title;
 
-    private boolean isOpen;
-    private Project projectM;
-    private ArrayList<Message>messages;
+    private LocalDate creationDate;
 
+    private LocalDate ClosingDate;
+    @NonNull
+    private String descrition;
+    private Messaging messagingP;
+    private Categorie categorie;
+    //one address
 }
