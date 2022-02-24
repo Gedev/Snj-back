@@ -1,4 +1,4 @@
-package com.snj.snjback;
+package com.snj.snjback.documents;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,4 +23,6 @@ public class User {
     private String firstname;
     private String lastname;
     private LocalDate birthdate;
+
+    private Address address;
 }
