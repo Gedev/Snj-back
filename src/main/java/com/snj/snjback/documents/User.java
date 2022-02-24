@@ -23,4 +23,6 @@ public class User {
     private String firstname;
     private String lastname;
     private LocalDate birthdate;
+
+    private Address address;
 }
