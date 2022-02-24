@@ -20,6 +20,6 @@ public class Messaging {
 
     private boolean isOpen;
     private Project projectM;
-    private ArrayList<Message>messages;
+    private Message[] messages;
 
 }

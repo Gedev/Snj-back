@@ -27,8 +27,7 @@ public class Project {
     private Messaging messagingP;
     private Category category;
     private Address addressP;
-    private ArrayList<User>collaborators;
-    private ArrayList<User>parters;
-    private ArrayList<Avantage>avantagesP;
+    private User[] users;
+    private Avantage[] avantagesP;
     //liste de don
 }
