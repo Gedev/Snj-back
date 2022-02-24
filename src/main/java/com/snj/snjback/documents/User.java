@@ -1,4 +1,4 @@
-package com.snj.snjback;
+package com.snj.snjback.documents;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
