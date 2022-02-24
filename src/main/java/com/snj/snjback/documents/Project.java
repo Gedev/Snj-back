@@ -24,6 +24,6 @@ public class Project {
     @NonNull
     private String descrition;
     private Messaging messagingP;
-    private Categorie categorie;
+    private Category category;
     //one address
 }

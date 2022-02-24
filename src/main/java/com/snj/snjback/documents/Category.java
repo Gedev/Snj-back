@@ -11,7 +11,7 @@ import java.util.ArrayList;
 @Document
 @AllArgsConstructor
 @NoArgsConstructor
-public class Categorie {
+public class Category {
     @Id
     private Long id;
     @NonNull
