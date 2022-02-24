@@ -6,6 +6,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 @Data
 @Builder
@@ -25,5 +26,9 @@ public class Project {
     private String descrition;
     private Messaging messagingP;
     private Category category;
-    //one address
+    private Address addressP;
+    private ArrayList<User>collaborators;
+    private ArrayList<User>parters;
+    private ArrayList<Avantage>avantagesP;
+    //liste de don
 }

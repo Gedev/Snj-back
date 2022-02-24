@@ -18,5 +18,7 @@ public class Avantage {
     private String title;
     @NonNull
     private String description;
+
     private ArrayList<Project> projectsA;
+    //liste produits ??
 }
