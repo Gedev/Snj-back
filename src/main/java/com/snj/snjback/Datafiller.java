@@ -1,6 +1,7 @@
 package com.snj.snjback;
 
 import com.snj.snjback.documents.User;
+import com.snj.snjback.repositories.UserRepository;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Component;
