@@ -1,7 +1,6 @@
 package com.snj.snjback.documents;
 
 import lombok.*;
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -12,14 +11,11 @@ import java.util.ArrayList;
 @Document
 @AllArgsConstructor
 @NoArgsConstructor
-public class Messaging {
+public class Categorie {
     @Id
-    private ObjectId id;
+    private Long id;
     @NonNull
-    private String title;
-
-    private boolean isOpen;
-    private Project projectM;
-    private ArrayList<Message>messages;
+    private String name;
+    private ArrayList<Project> projects;
 
 }
