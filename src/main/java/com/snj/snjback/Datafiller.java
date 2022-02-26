@@ -1,7 +1,9 @@
 package com.snj.snjback;
 
 import com.snj.snjback.documents.Address;
+import com.snj.snjback.documents.Donation;
 import com.snj.snjback.documents.User;
+import com.snj.snjback.repositories.DonationRepository;
 import com.snj.snjback.repositories.UserRepository;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.InitializingBean;
@@ -13,9 +15,11 @@ import java.time.LocalDate;
 public class Datafiller implements InitializingBean {
 
     private final UserRepository userRepository;
+    private final DonationRepository donationRepository;
 
-    public Datafiller(UserRepository userRepository) {
+    public Datafiller(UserRepository userRepository, DonationRepository donationRepository) {
         this.userRepository = userRepository;
+        this.donationRepository = donationRepository;
     }
 
     @Override
@@ -35,5 +39,15 @@ public class Datafiller implements InitializingBean {
 
         .build();
         userRepository.insert(user);
+
+        Donation donation = Donation.builder()
+                .id(ObjectId.get())
+                .title("First donation")
+                .hasCategory(false)
+                .amount(5000)
+                .isCash(true)
+                .donator(user)
+                .build();
+        donationRepository.insert(donation);
     }
 }

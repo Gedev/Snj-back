@@ -29,5 +29,5 @@ public class Project {
     private Address addressP;
     private User[] users;
     private Avantage[] avantagesP;
-    //liste de don
+    private Donation[] donations;
 }
