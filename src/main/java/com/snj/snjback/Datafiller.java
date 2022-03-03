@@ -25,9 +25,9 @@ public class Datafiller implements InitializingBean {
     @Override
     public void afterPropertiesSet() throws Exception {
         User user = User.builder()
-                .id(ObjectId.get())
-                .firstname("Gérald")
-                .lastname("Dev")
+                .id(String.valueOf(ObjectId.get()))
+                .firstname("Pacifique")
+                .lastname("Ngabo")
                 .birthdate(LocalDate.now())
                 .address(Address.builder()
                         .country("country")
