@@ -1,0 +1,12 @@
+package com.snj.snjback.repositories;
+
+import com.snj.snjback.documents.Category;
+import org.bson.types.ObjectId;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
+
+import java.util.Set;
+
+public interface CategorieRepository extends MongoRepository<Category, Long> {
+    Set<Category> findByname(String name);
+}
