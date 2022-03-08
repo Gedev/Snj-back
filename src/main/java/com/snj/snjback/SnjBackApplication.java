@@ -9,9 +9,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class SnjBackApplication {
 
-    @Autowired
-    private UserRepository repository;
-
     public static void main(String[] args) {
         SpringApplication.run(SnjBackApplication.class, args);
     }

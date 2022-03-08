@@ -24,10 +24,10 @@ public class Project {
     private LocalDate ClosingDate;
     @NonNull
     private String descrition;
-    private Messaging messagingP;
+//    private Messaging messagingP;
     private Category category;
     private Address addressP;
-    private User[] users;
-    private Avantage[] avantagesP;
-    private Donation[] donations;
+//    private User[] users;
+//    private Avantage[] avantagesP;
+//    private Donation[] donations;
 }

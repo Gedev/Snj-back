@@ -20,6 +20,6 @@ public class Message {
     private String content;
     @CreatedDate
     private LocalDate date;
-    private Messaging messaging;
+//    private Messaging messaging;
 
 }

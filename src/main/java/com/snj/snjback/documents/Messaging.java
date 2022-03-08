@@ -19,7 +19,7 @@ public class Messaging {
     private String title;
 
     private boolean isOpen;
-    private Project projectM;
-    private Message[] messages;
+//    private Project projectM;
+//    private Message[] messages;
 
 }
