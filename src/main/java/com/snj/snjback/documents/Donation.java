@@ -15,7 +15,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @NoArgsConstructor
 public class Donation {
     @Id
-    private ObjectId id;
+    private String id;
     private String title;
     private boolean hasCategory;
     private long quantity;
