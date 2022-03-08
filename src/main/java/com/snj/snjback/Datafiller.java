@@ -45,10 +45,10 @@ public class Datafiller implements InitializingBean {
         userRepository.insert(user);
 
         Donation donation = Donation.builder()
-                .id(ObjectId.get())
+                .id(String.valueOf(ObjectId.get()))
                 .title("First donation")
                 .hasCategory(false)
-                .amount(5000)
+                .amount(5500)
                 .isCash(true)
                 .donator(user)
                 .build();
