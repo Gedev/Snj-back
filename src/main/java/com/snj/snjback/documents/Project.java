@@ -3,6 +3,7 @@ package com.snj.snjback.documents;
 import lombok.*;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
@@ -24,10 +25,13 @@ public class Project {
     private LocalDate ClosingDate;
     @NonNull
     private String descrition;
-//    private Messaging messagingP;
+
+    //private Messaging messagingP;
+    @DBRef
     private Category category;
+    @DBRef
     private Address addressP;
-//    private User[] users;
-//    private Avantage[] avantagesP;
-//    private Donation[] donations;
+    private User[] users;
+    private Avantage[] avantagesP;
+   // private Donation[] donations;
 }

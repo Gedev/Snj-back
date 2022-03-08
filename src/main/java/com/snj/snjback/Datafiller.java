@@ -1,8 +1,10 @@
 package com.snj.snjback;
 
 import com.snj.snjback.documents.Address;
+import com.snj.snjback.documents.Category;
 import com.snj.snjback.documents.Donation;
 import com.snj.snjback.documents.User;
+import com.snj.snjback.repositories.CategorieRepository;
 import com.snj.snjback.repositories.DonationRepository;
 import com.snj.snjback.repositories.UserRepository;
 import org.bson.types.ObjectId;
@@ -16,15 +18,17 @@ public class Datafiller implements InitializingBean {
 
     private final UserRepository userRepository;
     private final DonationRepository donationRepository;
+    private final CategorieRepository categorieRepository;
 
-    public Datafiller(UserRepository userRepository, DonationRepository donationRepository) {
+    public Datafiller(UserRepository userRepository, DonationRepository donationRepository, CategorieRepository categorieRepository) {
         this.userRepository = userRepository;
         this.donationRepository = donationRepository;
+        this.categorieRepository = categorieRepository;
     }
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        User user = User.builder()
+        /*User user = User.builder()
                 .id(String.valueOf(ObjectId.get()))
                 .firstname("Pacifique")
                 .lastname("Ngabo")
@@ -49,5 +53,11 @@ public class Datafiller implements InitializingBean {
                 .donator(user)
                 .build();
         donationRepository.insert(donation);
+        Category category=Category.builder()
+                .id(ObjectId.get())
+                .name("Nettoyage")
+                .build();
+        categorieRepository.insert(category);*/
+
     }
 }

@@ -3,6 +3,7 @@ package com.snj.snjback.documents;
 import lombok.*;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
@@ -19,7 +20,8 @@ public class Messaging {
     private String title;
 
     private boolean isOpen;
-//    private Project projectM;
-//    private Message[] messages;
+    @DBRef
+    private Project projectM;
+   // private Message[] messages;
 
 }

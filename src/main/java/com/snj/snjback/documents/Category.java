@@ -16,6 +16,6 @@ public class Category {
     private Long id;
     @NonNull
     private String name;
-//    private ArrayList<Project> projects;
+    private ArrayList<Project> projects;
 
 }
