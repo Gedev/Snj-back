@@ -1,4 +1,4 @@
-package com.snj.snjback.dtos;
+package com.snj.snjback.documents.dto;
 
 import com.snj.snjback.documents.Product;
 import com.snj.snjback.documents.Project;

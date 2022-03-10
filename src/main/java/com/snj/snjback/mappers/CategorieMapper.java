@@ -20,7 +20,7 @@ public class CategorieMapper implements BaseMapper<CategorieDTO, CategorieForm, 
     @Override
     public Category formToDocument(CategorieForm form){
         Category c= new Category();
-        c.setId(ObjectId.get());//Si on laisse document en long Long.parseLong(ObjectId.get().toString())
+        c.setId(String.valueOf(ObjectId.get()));//Si on laisse document en long Long.parseLong(ObjectId.get().toString())
         c.setName(form.getName());
         return c;
     }

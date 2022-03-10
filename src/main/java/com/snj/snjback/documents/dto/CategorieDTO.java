@@ -7,6 +7,6 @@ import org.bson.types.ObjectId;
 @Data
 @Builder
 public class CategorieDTO {
-    private ObjectId id;
+    private String id;
     private String name;
 }

@@ -1,14 +1,16 @@
 package com.snj.snjback.services;
 
 import com.snj.snjback.documents.Donation;
-import com.snj.snjback.dtos.DonationDTO;
-import com.snj.snjback.exceptions.ElementAlreadyExistException;
+import com.snj.snjback.documents.dto.DonationDTO;
+import com.snj.snjback.exceptions.ElementAlreadyExistsException;
+import com.snj.snjback.exceptions.ElementNotFoundException;
 import com.snj.snjback.forms.DonationForm;
 import com.snj.snjback.mappers.DonationMapper;
 import com.snj.snjback.repositories.DonationRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class DonationServiceImpl implements DonationService{
@@ -22,12 +24,23 @@ public class DonationServiceImpl implements DonationService{
 
     @Override
     public List<DonationDTO> getAll() {
-        return null;
+        return repository.findAll().stream()
+                .map(mapper::entityToDTO)
+                .collect(Collectors.toList());
     }
 
     @Override
-    public DonationDTO getOne(Long aLong) {
-        return null;
+    public DonationDTO getOne(String id) {
+        if (id == null)
+            return null;
+
+        if (!repository.existsById(id))
+            throw new ElementNotFoundException();
+
+        Donation found = repository.findById(id)
+                .orElseThrow(ElementNotFoundException::new);
+
+        return mapper.entityToDTO(found);
     }
 
     @Override
@@ -36,7 +49,7 @@ public class DonationServiceImpl implements DonationService{
             return null;
 
         if (repository.existsById(form.getId()))
-            throw new ElementAlreadyExistException();
+            throw new ElementAlreadyExistsException();
 
         Donation toInsert = mapper.formToEntity(form);
 
@@ -44,12 +57,31 @@ public class DonationServiceImpl implements DonationService{
     }
 
     @Override
-    public DonationDTO delete(Long aLong) {
-        return null;
+    public DonationDTO delete(String id) {
+        if (id == null)
+            return null;
+
+        if (!repository.existsById(id))
+            throw new ElementNotFoundException();
+
+        Donation todelete = repository.findById(id)
+                .orElseThrow(ElementNotFoundException::new);
+
+        repository.delete(todelete);
+
+        return mapper.entityToDTO(todelete);
     }
 
     @Override
     public DonationDTO update(DonationForm form) {
-        return null;
+        if (form == null)
+            return null;
+
+        if (!repository.existsById(form.getId()))
+            throw new ElementNotFoundException();
+
+        Donation toUpdate = mapper.formToEntity(form);
+
+        return mapper.entityToDTO(repository.save(toUpdate));
     }
 }
