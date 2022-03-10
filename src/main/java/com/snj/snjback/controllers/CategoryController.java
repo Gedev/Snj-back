@@ -1,11 +1,9 @@
 package com.snj.snjback.controllers;
 
-import com.snj.snjback.documents.Category;
 import com.snj.snjback.documents.dto.CategorieDTO;
 import com.snj.snjback.forms.CategorieForm;
-import com.snj.snjback.repositories.CategorieRepository;
-import com.snj.snjback.servies.CategorieService;
-import org.springframework.http.HttpHeaders;
+import com.snj.snjback.repositories.CategoryRepository;
+import com.snj.snjback.services.CategoryService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,11 +11,11 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/categorie")
-public class CategorieController {
-    public final CategorieRepository repository;
-    public final CategorieService service;
-    public CategorieController(CategorieRepository repository, CategorieService service) {
+@RequestMapping("/category")
+public class CategoryController {
+    public final CategoryRepository repository;
+    public final CategoryService service;
+    public CategoryController(CategoryRepository repository, CategoryService service) {
         this.repository = repository;
         this.service = service;
     }

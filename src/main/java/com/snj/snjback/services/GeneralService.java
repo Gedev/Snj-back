@@ -1,4 +1,4 @@
-package com.snj.snjback.servies;
+package com.snj.snjback.services;
 
 import com.snj.snjback.documents.Category;
 import com.snj.snjback.documents.dto.CategorieDTO;
