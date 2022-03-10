@@ -13,7 +13,7 @@ import java.util.ArrayList;
 @NoArgsConstructor
 public class Category {
     @Id
-    private Long id;
+    private String id;
     @NonNull
     private String name;
     private ArrayList<Project> projects;

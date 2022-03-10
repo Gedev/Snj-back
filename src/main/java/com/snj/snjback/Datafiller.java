@@ -28,7 +28,7 @@ public class Datafiller implements InitializingBean {
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        User user = User.builder()
+        /*User user = User.builder()
                 .id(String.valueOf(ObjectId.get()))
                 .firstname("Pacifique")
                 .lastname("Ngabo")
@@ -54,10 +54,10 @@ public class Datafiller implements InitializingBean {
                 .build();
         donationRepository.insert(donation);
         Category category=Category.builder()
-                .id(ObjectId.get())
+                .id(String.valueOf(ObjectId.get()))
                 .name("Nettoyage")
                 .build();
-        categorieRepository.insert(category);
+        categorieRepository.insert(category);*/
 
     }
 }

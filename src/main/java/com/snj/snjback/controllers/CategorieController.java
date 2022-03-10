@@ -28,8 +28,13 @@ public class CategorieController {
                 .ok(service.getAll());
     }
     @PostMapping(path = {"", "/", "/add"})
-    public CategorieDTO insert(@Valid @RequestBody CategorieForm form){
-        return service.add(form);
+    public ResponseEntity<CategorieDTO>  insert(@Valid @RequestBody CategorieForm form){
+        return ResponseEntity.ok(service.add(form));
+
+    }
+    @PatchMapping(path = {"/update"},params = {"id"})
+    public ResponseEntity<CategorieDTO> update(@RequestParam Long id, @Valid @RequestBody CategorieForm form){
+        return ResponseEntity.ok(service.update(id,form));
 
     }
 }
