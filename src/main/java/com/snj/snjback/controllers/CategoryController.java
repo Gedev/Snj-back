@@ -31,7 +31,7 @@ public class CategoryController {
 
     }
     @PatchMapping(path = {"/update"},params = {"id"})
-    public ResponseEntity<CategorieDTO> update(@RequestParam Long id, @Valid @RequestBody CategorieForm form){
+    public ResponseEntity<CategorieDTO> update(@RequestParam String id, @Valid @RequestBody CategorieForm form){
         return ResponseEntity.ok(service.update(id,form));
 
     }
