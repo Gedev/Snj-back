@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class CategoryService implements GeneralService<Long,CategorieForm,CategorieDTO> {
+public class CategoryService implements GeneralService<String,CategorieForm,CategorieDTO> {
     private final CategorieMapper mapper;
     private final CategoryRepository repository;
 
@@ -41,7 +41,7 @@ public class CategoryService implements GeneralService<Long,CategorieForm,Catego
     }
 
     @Override
-    public CategorieDTO update(Long id, CategorieForm categorieForm) {
+    public CategorieDTO update(String id, CategorieForm categorieForm) {
 
         Category category=repository.findById(id).orElseThrow(
                 ()->new ElementNotFoundException("La catégorie portant l'id: "+id));

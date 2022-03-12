@@ -7,6 +7,6 @@ import org.springframework.data.mongodb.repository.Query;
 
 import java.util.Set;
 
-public interface CategoryRepository extends MongoRepository<Category, Long> {
+public interface CategoryRepository extends MongoRepository<Category, String> {
     Set<Category> findByname(String name);
 }
