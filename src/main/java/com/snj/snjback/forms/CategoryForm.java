@@ -8,7 +8,7 @@ import javax.validation.constraints.NotBlank;
 
 @Data
 @Validated
-public class CategorieForm {
+public class CategoryForm {
     @NotBlank
 //    private String id;
     @Length(min = 2)
