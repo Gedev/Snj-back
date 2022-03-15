@@ -21,17 +21,7 @@ public class DonationServiceImpl implements DonationService{
     }
 
     @Override
-    public List<DonationDTO> getAll() {
-        return null;
-    }
-
-    @Override
-    public DonationDTO getOne(Long aLong) {
-        return null;
-    }
-
-    @Override
-    public DonationDTO insert(DonationForm form) {
+    public DonationDTO add(DonationForm form) {
         if (form == null)
             return null;
 
@@ -44,12 +34,13 @@ public class DonationServiceImpl implements DonationService{
     }
 
     @Override
-    public DonationDTO delete(Long aLong) {
+    public List<DonationDTO> getAll() {
         return null;
     }
 
     @Override
-    public DonationDTO update(DonationForm form) {
+    public DonationDTO update(Long aLong, DonationForm donationForm) {
         return null;
     }
+
 }
