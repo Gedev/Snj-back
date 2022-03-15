@@ -22,7 +22,7 @@ public class DonationController {
     @PostMapping(path = {"", "/", "/add"})
     public DonationDTO insert(@Valid @RequestBody DonationForm form) {
         System.out.println("On essaie d'inserer");
-        return service.insert(form);
+        return service.add(form);
     }
 
 }

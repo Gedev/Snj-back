@@ -2,10 +2,11 @@ package com.snj.snjback.services;
 
 import java.util.List;
 
-public interface ServiceCRUD <DTO, Form, ID>{
-    List<DTO> getAll();
-    DTO getOne(ID id);
-    DTO insert(Form form);
-    DTO delete(ID id);
-    DTO update(Form form);
+public interface ServiceCRUD<ID,FORM,DTO>{
+
+    public DTO add(FORM toAdd) ;
+
+    public List<DTO> getAll();
+
+    public DTO update(ID id, FORM form);
 }

@@ -11,12 +11,12 @@ public class Datafiller implements InitializingBean {
 
     private final UserRepository userRepository;
     private final DonationRepository donationRepository;
-    private final CategoryRepository categorieRepository;
+    private final CategoryRepository categoryRepository;
 
-    public Datafiller(UserRepository userRepository, DonationRepository donationRepository, CategoryRepository categorieRepository) {
+    public Datafiller(UserRepository userRepository, DonationRepository donationRepository, CategoryRepository categoryRepository) {
         this.userRepository = userRepository;
         this.donationRepository = donationRepository;
-        this.categorieRepository = categorieRepository;
+        this.categoryRepository = categoryRepository;
     }
 
     @Override
