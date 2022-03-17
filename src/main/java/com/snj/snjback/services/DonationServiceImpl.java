@@ -44,7 +44,7 @@ public class DonationServiceImpl implements DonationService{
     }
 
     @Override
-    public DonationDTO insert(DonationForm form) {
+        public DonationDTO insert(DonationForm form) {
         if (form == null)
             return null;
 
@@ -73,7 +73,7 @@ public class DonationServiceImpl implements DonationService{
     }
 
     @Override
-    public DonationDTO update(DonationForm form) {
+    public DonationDTO update(String id, DonationForm form) {
         if (form == null)
             return null;
 

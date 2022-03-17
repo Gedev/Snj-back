@@ -38,10 +38,10 @@ public class DonationController {
         return service.getAll();
     }
 
-    @PatchMapping(path = {"", "/", "/update"})
-    public DonationDTO update(@Valid @RequestBody DonationForm form) {
+    @PatchMapping(path = {"", "/", "/update"}, params = {"id"})
+    public DonationDTO update(@Valid @RequestBody DonationForm form, @RequestParam String id) {
         //form.setPassword(encoder.encode(form.getPassword()));
-        return service.update(form);
+        return service.update(id, form);
     }
 
     @DeleteMapping("/{id}")
