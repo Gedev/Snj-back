@@ -1,14 +1,12 @@
 package com.snj.snjback.controllers;
 
-import com.snj.snjback.dtos.DonationDTO;
+import com.snj.snjback.documents.dto.DonationDTO;
 import com.snj.snjback.forms.DonationForm;
 import com.snj.snjback.services.DonationService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/donation")
@@ -19,10 +17,37 @@ public class DonationController {
         this.service = service;
     }
 
+    @GetMapping("/{id}")
+    public DonationDTO getOneParam(@PathVariable String id) {
+        return service.getOne(id);
+    }
+
+    @GetMapping(params = "id")
+    public DonationDTO getOne(@RequestParam String id) {
+        System.out.println("==>getById<===");
+        return service.getOne(id);
+    }
+
     @PostMapping(path = {"", "/", "/add"})
     public DonationDTO insert(@Valid @RequestBody DonationForm form) {
-        System.out.println("On essaie d'inserer");
-        return service.add(form);
+        return service.insert(form);
+    }
+
+    @GetMapping(path = {"", "/", "/all"})
+    public List<DonationDTO> getAll() {
+        return service.getAll();
+    }
+
+    @PatchMapping(path = {"", "/", "/update"}, params = {"id"})
+    public DonationDTO update(@Valid @RequestBody DonationForm form, @RequestParam String id) {
+        //form.setPassword(encoder.encode(form.getPassword()));
+        return service.update(id, form);
+    }
+
+    @DeleteMapping("/{id}")
+    public DonationDTO delete(@PathVariable String id) {
+        //return service.deleteSecure(id, auth);
+        return service.delete(id);
     }
 
 }

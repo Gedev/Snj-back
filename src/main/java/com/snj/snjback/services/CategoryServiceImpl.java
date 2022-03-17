@@ -1,6 +1,7 @@
 package com.snj.snjback.services;
 
 import com.snj.snjback.documents.Category;
+import com.snj.snjback.documents.dto.DonationDTO;
 import com.snj.snjback.exeption.ElementAlreadyExistsException;
 import com.snj.snjback.exeption.ElementNotFoundException;
 import com.snj.snjback.forms.CategoryForm;
@@ -23,7 +24,7 @@ public class CategoryServiceImpl implements ServiceCRUD<String, CategoryForm, Ca
     }
 
     @Override
-    public CategoryDTO add(CategoryForm toAdd) {
+    public CategoryDTO insert(CategoryForm toAdd) {
         if(!repository.findByname(toAdd.getName()).isEmpty())
             throw new ElementAlreadyExistsException(toAdd.getName());
 
@@ -38,6 +39,16 @@ public class CategoryServiceImpl implements ServiceCRUD<String, CategoryForm, Ca
                 .stream()
                 .map(mapper::documentToDto)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public CategoryDTO getOne(String id) {
+        return null;
+    }
+
+    @Override
+    public DonationDTO delete(String id) {
+        return null;
     }
 
     @Override

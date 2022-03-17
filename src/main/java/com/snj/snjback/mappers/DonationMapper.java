@@ -1,7 +1,7 @@
 package com.snj.snjback.mappers;
 
 import com.snj.snjback.documents.Donation;
-import com.snj.snjback.dtos.DonationDTO;
+import com.snj.snjback.documents.dto.DonationDTO;
 import com.snj.snjback.forms.DonationForm;
 import org.springframework.stereotype.Component;
 

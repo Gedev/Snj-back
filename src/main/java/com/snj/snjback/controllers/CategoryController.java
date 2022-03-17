@@ -27,9 +27,10 @@ public class CategoryController {
         return ResponseEntity
                 .ok(service.getAll());
     }
+
     @PostMapping(path = {"", "/", "/add"})
     public ResponseEntity<CategoryDTO>  insert(@Valid @RequestBody CategoryForm form){
-        return ResponseEntity.ok(service.add(form));
+        return ResponseEntity.ok(service.insert(form));
 
     }
     @PatchMapping(path = {"/update"},params = {"id"})
