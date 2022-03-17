@@ -1,6 +1,7 @@
 package com.snj.snjback.mappers;
 
-public interface Mapper <ENTITY, DTO, FORM> {
-    DTO entityToDTO(ENTITY entity);
-    ENTITY formToEntity(FORM form);
+public interface Mapper <DOCUMENT, DTO, FORM, FORMUPDATE> {
+    DTO documentToDTO(DOCUMENT entity);
+    DOCUMENT formToDocument(FORM form);
+    DOCUMENT formUpdateToDocument(FORMUPDATE form);
 }

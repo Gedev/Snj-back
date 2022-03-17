@@ -3,12 +3,14 @@ package com.snj.snjback.mappers;
 import com.snj.snjback.documents.Donation;
 import com.snj.snjback.documents.dto.DonationDTO;
 import com.snj.snjback.forms.DonationForm;
+import com.snj.snjback.forms.updateForms.DonationUpdateForm;
+import org.bson.types.ObjectId;
 import org.springframework.stereotype.Component;
 
 @Component
-public class DonationMapper implements Mapper<Donation, DonationDTO, DonationForm>{
+public class DonationMapper implements Mapper<Donation, DonationDTO, DonationForm, DonationUpdateForm>{
     @Override
-    public DonationDTO entityToDTO(Donation entity) {
+    public DonationDTO documentToDTO(Donation entity) {
         return DonationDTO.builder()
                 .id(entity.getId())
                 .title(entity.getTitle())
@@ -23,9 +25,23 @@ public class DonationMapper implements Mapper<Donation, DonationDTO, DonationFor
     }
 
     @Override
-    public Donation formToEntity(DonationForm form) {
+    public Donation formToDocument(DonationForm form) {
         return Donation.builder()
-                .id(form.getId())
+                .id(String.valueOf(ObjectId.get()))
+                .title(form.getTitle())
+                .hasCategory(form.isHasCategory())
+                .quantity(form.getQuantity())
+                .amount(form.getAmount())
+                .isCash(form.isCash())
+//                .products(form.getProducts())
+//                .projects(form.getProjects())
+                .donator(form.getDonator())
+                .build();
+    }
+
+    @Override
+    public Donation formUpdateToDocument(DonationUpdateForm form) {
+        return Donation.builder()
                 .title(form.getTitle())
                 .hasCategory(form.isHasCategory())
                 .quantity(form.getQuantity())
