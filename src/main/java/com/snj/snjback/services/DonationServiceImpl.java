@@ -3,7 +3,9 @@ package com.snj.snjback.services;
 import com.snj.snjback.documents.Donation;
 import com.snj.snjback.dtos.DonationDTO;
 import com.snj.snjback.exceptions.ElementAlreadyExistException;
+import com.snj.snjback.exeption.ElementNotFoundException;
 import com.snj.snjback.forms.DonationForm;
+import com.snj.snjback.forms.updateForms.DonationUpdateForm;
 import com.snj.snjback.mappers.DonationMapper;
 import com.snj.snjback.repositories.DonationRepository;
 import org.springframework.stereotype.Service;
@@ -28,9 +30,9 @@ public class DonationServiceImpl implements DonationService{
         if (repository.existsById(form.getId()))
             throw new ElementAlreadyExistException();
 
-        Donation toInsert = mapper.formToEntity(form);
+        Donation toInsert = mapper.formToDocument(form);
 
-        return mapper.entityToDTO(repository.insert(toInsert));
+        return mapper.documentToDTO(repository.insert(toInsert));
     }
 
     @Override
@@ -39,8 +41,14 @@ public class DonationServiceImpl implements DonationService{
     }
 
     @Override
-    public DonationDTO update(Long aLong, DonationForm donationForm) {
+    public DonationDTO update(Long aLong, DonationUpdateForm form) {
         return null;
     }
+
+    @Override
+    public DonationDTO delete(Long aLong) throws ElementNotFoundException {
+        return null;
+    }
+
 
 }

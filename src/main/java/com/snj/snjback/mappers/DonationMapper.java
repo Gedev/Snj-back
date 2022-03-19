@@ -3,12 +3,13 @@ package com.snj.snjback.mappers;
 import com.snj.snjback.documents.Donation;
 import com.snj.snjback.dtos.DonationDTO;
 import com.snj.snjback.forms.DonationForm;
+import com.snj.snjback.forms.updateForms.DonationUpdateForm;
 import org.springframework.stereotype.Component;
 
 @Component
-public class DonationMapper implements Mapper<Donation, DonationDTO, DonationForm>{
+public class DonationMapper implements Mapper<Donation, DonationDTO, DonationForm, DonationUpdateForm>{
     @Override
-    public DonationDTO entityToDTO(Donation entity) {
+    public DonationDTO documentToDTO(Donation entity) {
         return DonationDTO.builder()
                 .id(entity.getId())
                 .title(entity.getTitle())
@@ -23,7 +24,7 @@ public class DonationMapper implements Mapper<Donation, DonationDTO, DonationFor
     }
 
     @Override
-    public Donation formToEntity(DonationForm form) {
+    public Donation formToDocument(DonationForm form) {
         return Donation.builder()
                 .id(form.getId())
                 .title(form.getTitle())
@@ -35,5 +36,10 @@ public class DonationMapper implements Mapper<Donation, DonationDTO, DonationFor
 //                .projects(form.getProjects())
                 .donator(form.getDonator())
                 .build();
+    }
+
+    @Override
+    public Donation formUpdateToDocument(DonationUpdateForm form) {
+        return null;
     }
 }

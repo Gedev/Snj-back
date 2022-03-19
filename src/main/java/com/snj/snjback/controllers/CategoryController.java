@@ -2,6 +2,7 @@ package com.snj.snjback.controllers;
 
 import com.snj.snjback.documents.dto.CategoryDTO;
 import com.snj.snjback.forms.CategoryForm;
+import com.snj.snjback.forms.updateForms.CategoryFormUpdate;
 import com.snj.snjback.repositories.CategoryRepository;
 import com.snj.snjback.services.CategoryServiceImpl;
 import org.springframework.http.ResponseEntity;
@@ -33,7 +34,7 @@ public class CategoryController {
 
     }
     @PatchMapping(path = {"/update"},params = {"id"})
-    public ResponseEntity<CategoryDTO> update(@RequestParam String id, @Valid @RequestBody CategoryForm form){
+    public ResponseEntity<CategoryDTO> update(@RequestParam String id, @Valid @RequestBody CategoryFormUpdate form){
         return ResponseEntity.ok(service.update(id,form));
 
     }
