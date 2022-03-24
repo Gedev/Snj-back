@@ -1,20 +1,16 @@
 package com.snj.snjback.forms.updateForms;
 
 import com.snj.snjback.documents.User;
+import lombok.Builder;
+import lombok.Data;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-
+@Data
+@Builder
 public class DonationUpdateForm {
-    @NotBlank
     private String title;
-    @NotNull
     private boolean hasCategory;
-    @NotNull
     private long quantity;
-    @NotNull
     private double amount;
-    @NotNull
     private boolean isCash;
 
     //    private Product[] products;

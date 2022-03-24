@@ -10,7 +10,7 @@ import javax.validation.constraints.NotBlank;
 @Validated
 public class CategoryForm {
     @NotBlank
-//    private String id;
+    private String id;
     @Length(min = 2)
     private String name;
 }

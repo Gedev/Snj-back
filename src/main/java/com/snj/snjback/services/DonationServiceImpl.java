@@ -5,6 +5,7 @@ import com.snj.snjback.documents.dto.DonationDTO;
 import com.snj.snjback.exceptions.ElementAlreadyExistsException;
 import com.snj.snjback.exceptions.ElementNotFoundException;
 import com.snj.snjback.forms.DonationForm;
+import com.snj.snjback.forms.updateForms.DonationUpdateForm;
 import com.snj.snjback.mappers.DonationMapper;
 import com.snj.snjback.repositories.DonationRepository;
 import org.springframework.stereotype.Service;
@@ -25,7 +26,7 @@ public class DonationServiceImpl implements DonationService{
     @Override
     public List<DonationDTO> getAll() {
         return repository.findAll().stream()
-                .map(mapper::entityToDTO)
+                .map(mapper::documentToDTO)
                 .collect(Collectors.toList());
     }
 
@@ -40,7 +41,7 @@ public class DonationServiceImpl implements DonationService{
         Donation found = repository.findById(id)
                 .orElseThrow(ElementNotFoundException::new);
 
-        return mapper.entityToDTO(found);
+        return mapper.documentToDTO(found);
     }
 
     @Override
@@ -51,9 +52,9 @@ public class DonationServiceImpl implements DonationService{
         if (repository.existsById(form.getId()))
             throw new ElementAlreadyExistsException();
 
-        Donation toInsert = mapper.formToEntity(form);
+        Donation toInsert = mapper.formToDocument(form);
 
-        return mapper.entityToDTO(repository.insert(toInsert));
+        return mapper.documentToDTO(repository.insert(toInsert));
     }
 
     @Override
@@ -69,19 +70,19 @@ public class DonationServiceImpl implements DonationService{
 
         repository.delete(todelete);
 
-        return mapper.entityToDTO(todelete);
+        return mapper.documentToDTO(todelete);
     }
 
     @Override
-    public DonationDTO update(String id, DonationForm form) {
+    public DonationDTO update(String id, DonationUpdateForm form) {
         if (form == null)
             return null;
 
-        if (!repository.existsById(form.getId()))
+        if (!repository.existsById(id))
             throw new ElementNotFoundException();
 
-        Donation toUpdate = mapper.formToEntity(form);
+        Donation toUpdate = mapper.formUpdateToDocument(form);
 
-        return mapper.entityToDTO(repository.save(toUpdate));
+        return mapper.documentToDTO(repository.save(toUpdate));
     }
 }
