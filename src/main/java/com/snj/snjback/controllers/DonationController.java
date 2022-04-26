@@ -2,6 +2,7 @@ package com.snj.snjback.controllers;
 
 import com.snj.snjback.documents.dto.DonationDTO;
 import com.snj.snjback.forms.DonationForm;
+import com.snj.snjback.forms.updateForms.DonationUpdateForm;
 import com.snj.snjback.services.DonationService;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,7 +40,7 @@ public class DonationController {
     }
 
     @PatchMapping(path = {"", "/", "/update"}, params = {"id"})
-    public DonationDTO update(@Valid @RequestBody DonationForm form, @RequestParam String id) {
+    public DonationDTO update(@Valid @RequestBody DonationUpdateForm form, @RequestParam String id) {
         //form.setPassword(encoder.encode(form.getPassword()));
         return service.update(id, form);
     }

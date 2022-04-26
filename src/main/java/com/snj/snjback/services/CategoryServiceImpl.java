@@ -5,6 +5,7 @@ import com.snj.snjback.documents.dto.DonationDTO;
 import com.snj.snjback.exeption.ElementAlreadyExistsException;
 import com.snj.snjback.exeption.ElementNotFoundException;
 import com.snj.snjback.forms.CategoryForm;
+import com.snj.snjback.forms.updateForms.CategoryFormUpdate;
 import com.snj.snjback.mappers.CategoryMapper;
 import com.snj.snjback.documents.dto.CategoryDTO;
 import com.snj.snjback.repositories.CategoryRepository;
@@ -14,7 +15,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class CategoryServiceImpl implements ServiceCRUD<String, CategoryForm, CategoryDTO> {
+public class CategoryServiceImpl implements ServiceCRUD<String, CategoryForm, CategoryFormUpdate, CategoryDTO> {
     private final CategoryMapper mapper;
     private final CategoryRepository repository;
 
@@ -52,7 +53,7 @@ public class CategoryServiceImpl implements ServiceCRUD<String, CategoryForm, Ca
     }
 
     @Override
-    public CategoryDTO update(String id, CategoryForm categoryForm) {
+    public CategoryDTO update(String id, CategoryFormUpdate categoryForm) {
 
         Category category=repository.findById(id).orElseThrow(
                 ()->new ElementNotFoundException("La catégorie portant l'id: "+id));
