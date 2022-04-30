@@ -14,5 +14,5 @@ public interface ServiceCRUD<ID,FORM, FORMUPDATE,DTO>{
 
     public DTO getOne(ID id);
 
-    public DonationDTO delete(ID id);
+    public DTO delete(ID id);
 }
