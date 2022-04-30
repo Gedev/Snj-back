@@ -28,7 +28,6 @@ public class CategoryServiceImpl implements ServiceCRUD<String, CategoryForm, Ca
     public CategoryDTO insert(CategoryForm toAdd) {
         if(!repository.findByname(toAdd.getName()).isEmpty())
             throw new ElementAlreadyExistsException(toAdd.getName());
-
         Category category= mapper.formToDocument(toAdd);
         category=repository.save(category);
         return mapper.documentToDto(category);
@@ -48,8 +47,12 @@ public class CategoryServiceImpl implements ServiceCRUD<String, CategoryForm, Ca
     }
 
     @Override
-    public DonationDTO delete(String id) {
-        return null;
+    public CategoryDTO delete(String id) {
+        Category category=repository.findById(id).orElseThrow(
+                ()->new ElementNotFoundException("La catégorie portant l'id: "+id));
+        if(category.getProjects()!=null)throw new ElementNotFoundException("La catégorie portant l'id: "+id);
+        repository.delete(category);
+        return mapper.documentToDto(category);
     }
 
     @Override

@@ -39,4 +39,8 @@ public class CategoryController {
         return ResponseEntity.ok(service.update(id,form));
 
     }
+    @DeleteMapping(path = {"/delete"},params = {"id"})
+    public ResponseEntity<CategoryDTO> delete(@RequestParam String id){
+        return ResponseEntity.ok(service.delete(id));
+    }
 }
