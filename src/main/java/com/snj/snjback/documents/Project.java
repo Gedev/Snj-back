@@ -7,7 +7,6 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 
 @Data
 @Builder
@@ -15,8 +14,9 @@ import java.util.ArrayList;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Project {
+
     @Id
-    private ObjectId id;
+    private String id;
     @NonNull
     private String title;
 
@@ -26,12 +26,10 @@ public class Project {
     @NonNull
     private String descrition;
 
-    //private Messaging messagingP;
     @DBRef
     private Category category;
     @DBRef
-    private Address addressP;
+    private Address address;
     private User[] users;
-    private Avantage[] avantagesP;
-   // private Donation[] donations;
+    private Avantage[] avantages;
 }
