@@ -16,8 +16,8 @@ services:
   postgresql_database:
     image: postgres:latest
     environment:
-      - POSTGRES_USER=snjAdmin
-      - POSTGRES_PASSWORD=snjAdmin1234
+      - POSTGRES_USER=
+      - POSTGRES_PASSWORD=
       - POSTGRES_DB=productDb
     ports:
       - "5432:5432"
@@ -28,8 +28,8 @@ services:
   pgadmin:
     image: dpage/pgadmin4
     environment:
-      - PGADMIN_DEFAULT_EMAIL=snjpgadmin@pgadmin.org
-      - PGADMIN_DEFAULT_PASSWORD=snjAdmin1234
+      - PGADMIN_DEFAULT_EMAIL=
+      - PGADMIN_DEFAULT_PASSWORD=
     ports:
       - '5050:80'
     restart: always
