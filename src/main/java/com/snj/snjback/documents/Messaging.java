@@ -1,27 +1,32 @@
 package com.snj.snjback.documents;
 
 import lombok.*;
-import org.bson.types.ObjectId;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.ArrayList;
+
+import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Builder
-@Document
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
 public class Messaging {
     @Id
-    private ObjectId id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
+    @Column
     @NonNull
     private String title;
 
+    @Column
     private boolean isOpen;
-    @DBRef
+
+    @OneToOne (mappedBy = "messagingP")
     private Project projectM;
-   // private Message[] messages;
+
+    @OneToMany
+    private List<Message> messages;
 
 }

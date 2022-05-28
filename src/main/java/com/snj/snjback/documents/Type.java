@@ -1,18 +1,25 @@
 package com.snj.snjback.documents;
 
 import lombok.*;
-import org.bson.types.ObjectId;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+
+import javax.persistence.*;
+import java.util.List;
+
 
 @Data
 @Builder
-@Document
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
 public class Type {
     @Id
-    private ObjectId id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
+    @Column
     @NonNull
     private String nom;
+
+    @OneToMany
+    private List<Product> product;
 }

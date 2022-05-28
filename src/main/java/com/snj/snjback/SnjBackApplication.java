@@ -1,16 +1,14 @@
 package com.snj.snjback;
 
-import com.snj.snjback.documents.User;
+
 import com.snj.snjback.repositories.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
+@EnableJpaRepositories("com.snj.snjback")
 public class SnjBackApplication {
-
-    private UserRepository repository;
-
     public static void main(String[] args) {
         SpringApplication.run(SnjBackApplication.class, args);
     }

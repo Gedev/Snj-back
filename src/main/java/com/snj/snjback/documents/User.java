@@ -4,25 +4,40 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.bson.types.ObjectId;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
+
 
 @Data
 @Builder
-@Document
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
+@Table(name="users")
 public class User {
 
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
+    @Column
     private String firstname;
+
+    @Column
     private String lastname;
+
+    @Column
     private LocalDate birthdate;
 
+    @OneToOne(fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    @JoinColumn(name = "address_id")
     private Address address;
+
+    @ManyToMany (mappedBy = "users", fetch = FetchType.LAZY)
+    private List<Project> projects;
+
+    @OneToMany(mappedBy = "donator")
+    private List<Donation> donation;
 }

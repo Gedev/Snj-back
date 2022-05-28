@@ -1,16 +1,35 @@
 package com.snj.snjback.documents;
 
 import lombok.*;
-import org.springframework.data.mongodb.core.mapping.Document;
+
+
+import javax.persistence.*;
 
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Document(collection = "address")
+@Entity
 public class Address {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @Column
     private String street;
+
+    @Column
     private String town;
+
+    @Column
     private String country;
+
+    @Column
     private String postCode;
+
+    @OneToOne(mappedBy = "address", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
+
 }
