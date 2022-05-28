@@ -4,7 +4,6 @@ import com.snj.snjback.documents.Donation;
 import com.snj.snjback.documents.dto.DonationDTO;
 import com.snj.snjback.forms.DonationForm;
 import com.snj.snjback.forms.updateForms.DonationUpdateForm;
-import org.bson.types.ObjectId;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -27,7 +26,7 @@ public class DonationMapper implements Mapper<Donation, DonationDTO, DonationFor
     @Override
     public Donation formToDocument(DonationForm form) {
         return Donation.builder()
-                .id(String.valueOf(ObjectId.get()))
+                .id(form.getId())
                 .title(form.getTitle())
                 .hasCategory(form.isHasCategory())
                 .quantity(form.getQuantity())

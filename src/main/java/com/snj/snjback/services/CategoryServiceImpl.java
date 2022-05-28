@@ -1,7 +1,6 @@
 package com.snj.snjback.services;
 
 import com.snj.snjback.documents.Category;
-import com.snj.snjback.documents.dto.DonationDTO;
 import com.snj.snjback.exeption.ElementAlreadyExistsException;
 import com.snj.snjback.exeption.ElementNotFoundException;
 import com.snj.snjback.forms.CategoryForm;
@@ -9,13 +8,13 @@ import com.snj.snjback.forms.updateForms.CategoryFormUpdate;
 import com.snj.snjback.mappers.CategoryMapper;
 import com.snj.snjback.documents.dto.CategoryDTO;
 import com.snj.snjback.repositories.CategoryRepository;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Service
-public class CategoryServiceImpl implements ServiceCRUD<String, CategoryForm, CategoryFormUpdate, CategoryDTO> {
+@Component
+public class CategoryServiceImpl implements ServiceCRUD<Long, CategoryForm, CategoryFormUpdate, CategoryDTO> {
     private final CategoryMapper mapper;
     private final CategoryRepository repository;
 
@@ -28,8 +27,8 @@ public class CategoryServiceImpl implements ServiceCRUD<String, CategoryForm, Ca
     public CategoryDTO insert(CategoryForm toAdd) {
         if(!repository.findByname(toAdd.getName()).isEmpty())
             throw new ElementAlreadyExistsException(toAdd.getName());
-        Category category= mapper.formToDocument(toAdd);
-        category=repository.save(category);
+        Category category = mapper.formToDocument(toAdd);
+        category = repository.save(category);
         return mapper.documentToDto(category);
     }
 
@@ -42,24 +41,24 @@ public class CategoryServiceImpl implements ServiceCRUD<String, CategoryForm, Ca
     }
 
     @Override
-    public CategoryDTO getOne(String id) {
+    public CategoryDTO getOne(Long id) {
         return null;
     }
 
     @Override
-    public CategoryDTO delete(String id) {
+    public CategoryDTO delete(Long id) {
         Category category=repository.findById(id).orElseThrow(
-                ()->new ElementNotFoundException("La catégorie portant l'id: "+id));
-        if(category.getProjects()!=null)throw new ElementNotFoundException("La catégorie portant l'id: "+id);
+                ElementNotFoundException::new);
+        if(category.getProjects()!=null)throw new ElementNotFoundException();
         repository.delete(category);
         return mapper.documentToDto(category);
     }
 
     @Override
-    public CategoryDTO update(String id, CategoryFormUpdate categoryForm) {
+    public CategoryDTO update(Long id, CategoryFormUpdate categoryForm) {
 
         Category category=repository.findById(id).orElseThrow(
-                ()->new ElementNotFoundException("La catégorie portant l'id: "+id));
+                ElementNotFoundException::new);
 
         if(!repository.findByname(categoryForm.getName()).isEmpty())
             throw new ElementAlreadyExistsException(categoryForm.getName());

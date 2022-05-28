@@ -19,12 +19,12 @@ public class DonationController {
     }
 
     @GetMapping("/{id}")
-    public DonationDTO getOneParam(@PathVariable String id) {
+    public DonationDTO getOneParam(@PathVariable Long id) {
         return service.getOne(id);
     }
 
     @GetMapping(params = "id")
-    public DonationDTO getOne(@RequestParam String id) {
+    public DonationDTO getOne(@RequestParam Long id) {
         System.out.println("==>getById<===");
         return service.getOne(id);
     }
@@ -40,13 +40,13 @@ public class DonationController {
     }
 
     @PatchMapping(path = {"", "/", "/update"}, params = {"id"})
-    public DonationDTO update(@Valid @RequestBody DonationUpdateForm form, @RequestParam String id) {
+    public DonationDTO update(@Valid @RequestBody DonationUpdateForm form, @RequestParam Long id) {
         //form.setPassword(encoder.encode(form.getPassword()));
         return service.update(id, form);
     }
 
     @DeleteMapping("/{id}")
-    public DonationDTO delete(@PathVariable String id) {
+    public DonationDTO delete(@PathVariable Long id) {
         //return service.deleteSecure(id, auth);
         return service.delete(id);
     }

@@ -3,7 +3,6 @@ package com.snj.snjback.mappers;
 import com.snj.snjback.documents.Category;
 import com.snj.snjback.forms.CategoryForm;
 import com.snj.snjback.documents.dto.CategoryDTO;
-import org.bson.types.ObjectId;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -20,7 +19,7 @@ public class CategoryMapper implements BaseMapper<CategoryDTO, CategoryForm, Cat
     @Override
     public Category formToDocument(CategoryForm form){
         Category c= new Category();
-        c.setId(String.valueOf(ObjectId.get()));//Si on laisse document en long Long.parseLong(ObjectId.get().toString())
+        c.setId(c.getId());
         c.setName(form.getName());
         return c;
     }

@@ -3,6 +3,8 @@ package com.snj.snjback.services;
 import com.snj.snjback.documents.dto.DonationDTO;
 import com.snj.snjback.forms.DonationForm;
 import com.snj.snjback.forms.updateForms.DonationUpdateForm;
+import org.springframework.stereotype.Service;
 
-public interface DonationService extends ServiceCRUD<String, DonationForm, DonationUpdateForm, DonationDTO>{
+@Service
+public interface DonationService extends ServiceCRUD<Long, DonationForm, DonationUpdateForm, DonationDTO>{
 }

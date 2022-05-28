@@ -1,35 +1,45 @@
 package com.snj.snjback.documents;
 
 import lombok.*;
-import org.bson.types.ObjectId;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
-import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @Builder
-@Document
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
 public class Project {
-
     @Id
-    private String id;
-    @NonNull
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
+    @Column @NonNull
     private String title;
 
+    @Column
     private LocalDate creationDate;
 
+    @Column
     private LocalDate ClosingDate;
-    @NonNull
+
+    @Column @NonNull
     private String descrition;
 
-    @DBRef
+    @OneToOne
+    private Messaging messagingP;
+
+    @ManyToOne
     private Category category;
-    @DBRef
-    private Address address;
-    private User[] users;
-    private Avantage[] avantages;
+
+    @ManyToMany
+    private List<User> users;
+
+    @ManyToMany
+    private List<Avantage> avantagesP;
+
+    @ManyToMany
+    private List<Donation> donations;
 }

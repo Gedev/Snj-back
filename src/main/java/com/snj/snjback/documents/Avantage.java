@@ -1,24 +1,27 @@
 package com.snj.snjback.documents;
 
 import lombok.*;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.ArrayList;
+import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Builder
-@Document
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
 public class Avantage {
     @Id
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
     @NonNull
     private String title;
     @NonNull
     private String description;
 
-    //private Project[] projectsA;
-    //liste produits ??
+    @ManyToMany (mappedBy = "avantagesP")
+    private List<Project> projects;
+
+    @ManyToMany
+    private List<Product> productList;
 }
