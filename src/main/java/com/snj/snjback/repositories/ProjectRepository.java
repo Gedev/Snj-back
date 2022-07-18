@@ -1,7 +1,9 @@
 package com.snj.snjback.repositories;
 
 import com.snj.snjback.documents.Project;
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Service;
 
-public interface ProjectRepository extends MongoRepository<Project, String> {
+@Service
+public interface ProjectRepository extends JpaRepository<Project, Long> {
 }
