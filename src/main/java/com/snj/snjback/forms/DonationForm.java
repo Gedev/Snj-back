@@ -1,6 +1,6 @@
 package com.snj.snjback.forms;
 
-import com.snj.snjback.documents.User;
+import com.snj.snjback.entity.User;
 import lombok.Builder;
 import lombok.Data;
 

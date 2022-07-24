@@ -1,4 +1,4 @@
-package com.snj.snjback.documents;
+package com.snj.snjback.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -32,10 +32,10 @@ public class Donation {
     @ManyToMany
     private List<Product> products;
 
-    @ManyToMany (mappedBy = "donations")
-    private List<Project> projects;
+//    @ManyToMany (mappedBy = "donations")
+//    private List<Project> projects;
 
-    @ManyToOne
+//    @ManyToOne
 //    @JoinColumn (name = "user_id")
-    private User donator;
+//    private User donator;
 }

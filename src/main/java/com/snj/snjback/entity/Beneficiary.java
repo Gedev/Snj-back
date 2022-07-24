@@ -1,4 +1,4 @@
-package com.snj.snjback.documents;
+package com.snj.snjback.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,7 +10,6 @@ import javax.persistence.*;
 import java.util.List;
 
 
-@Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor

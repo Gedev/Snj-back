@@ -1,6 +1,6 @@
 package com.snj.snjback.controllers;
 
-import com.snj.snjback.documents.dto.DonationDTO;
+import com.snj.snjback.entity.dto.DonationDTO;
 import com.snj.snjback.forms.DonationForm;
 import com.snj.snjback.forms.updateForms.DonationUpdateForm;
 import com.snj.snjback.services.DonationService;

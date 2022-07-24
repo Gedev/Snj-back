@@ -1,6 +1,6 @@
 package com.snj.snjback.controllers;
 
-import com.snj.snjback.documents.dto.CategoryDTO;
+import com.snj.snjback.entity.dto.CategoryDTO;
 import com.snj.snjback.forms.CategoryForm;
 import com.snj.snjback.forms.updateForms.CategoryFormUpdate;
 import com.snj.snjback.repositories.CategoryRepository;

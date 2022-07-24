@@ -1,11 +1,10 @@
-package com.snj.snjback.documents;
+package com.snj.snjback.entity;
 
 import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
 
-@Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,12 +15,12 @@ public class Avantage {
     private long id;
     @NonNull
     private String title;
-    @NonNull
-    private String description;
-
-    @ManyToMany (mappedBy = "avantagesP")
-    private List<Project> projects;
-
-    @ManyToMany
-    private List<Product> productList;
+//    @NonNull
+//    private String description;
+//
+//    @ManyToMany (mappedBy = "avantagesP")
+//    private List<Project> projects;
+//
+//    @ManyToMany
+//    private List<Product> productList;
 }

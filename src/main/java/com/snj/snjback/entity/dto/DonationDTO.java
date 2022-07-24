@@ -1,6 +1,6 @@
-package com.snj.snjback.documents.dto;
+package com.snj.snjback.entity.dto;
 
-import com.snj.snjback.documents.User;
+import com.snj.snjback.entity.User;
 import lombok.Builder;
 import lombok.Data;
 

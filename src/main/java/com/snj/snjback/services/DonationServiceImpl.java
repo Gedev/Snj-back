@@ -1,16 +1,19 @@
 package com.snj.snjback.services;
 
-import com.snj.snjback.documents.Donation;
-import com.snj.snjback.documents.dto.DonationDTO;
+import com.snj.snjback.entity.Donation;
+import com.snj.snjback.entity.dto.DonationDTO;
 import com.snj.snjback.exeption.ElementAlreadyExistsException;
 import com.snj.snjback.exeption.ElementNotFoundException;
 import com.snj.snjback.forms.DonationForm;
 import com.snj.snjback.forms.updateForms.DonationUpdateForm;
 import com.snj.snjback.mappers.DonationMapper;
 import com.snj.snjback.repositories.DonationRepository;
+import org.springframework.stereotype.Component;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Component
 public class DonationServiceImpl implements DonationService{
     private final DonationRepository repository;
     private final DonationMapper mapper;

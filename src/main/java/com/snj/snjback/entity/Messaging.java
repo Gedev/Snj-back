@@ -1,4 +1,4 @@
-package com.snj.snjback.documents;
+package com.snj.snjback.entity;
 
 import lombok.*;
 
@@ -6,7 +6,6 @@ import lombok.*;
 import javax.persistence.*;
 import java.util.List;
 
-@Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -23,8 +22,8 @@ public class Messaging {
     @Column
     private boolean isOpen;
 
-    @OneToOne (mappedBy = "messagingP")
-    private Project projectM;
+//    @OneToOne (mappedBy = "messagingP")
+//    private Project projectM;
 
     @OneToMany
     private List<Message> messages;

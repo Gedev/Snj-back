@@ -1,6 +1,6 @@
 package com.snj.snjback.controllers;
 
-import com.snj.snjback.documents.User;
+import com.snj.snjback.entity.User;
 import com.snj.snjback.repositories.UserRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

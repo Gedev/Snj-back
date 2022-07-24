@@ -1,12 +1,12 @@
 package com.snj.snjback.services;
 
-import com.snj.snjback.documents.Category;
+import com.snj.snjback.entity.Category;
 import com.snj.snjback.exeption.ElementAlreadyExistsException;
 import com.snj.snjback.exeption.ElementNotFoundException;
 import com.snj.snjback.forms.CategoryForm;
 import com.snj.snjback.forms.updateForms.CategoryFormUpdate;
 import com.snj.snjback.mappers.CategoryMapper;
-import com.snj.snjback.documents.dto.CategoryDTO;
+import com.snj.snjback.entity.dto.CategoryDTO;
 import com.snj.snjback.repositories.CategoryRepository;
 import org.springframework.stereotype.Component;
 
@@ -27,16 +27,16 @@ public class CategoryServiceImpl implements ServiceCRUD<Long, CategoryForm, Cate
     public CategoryDTO insert(CategoryForm toAdd) {
         if(!repository.findByname(toAdd.getName()).isEmpty())
             throw new ElementAlreadyExistsException(toAdd.getName());
-        Category category = mapper.formToDocument(toAdd);
+        Category category = mapper.formToEntity(toAdd);
         category = repository.save(category);
-        return mapper.documentToDto(category);
+        return mapper.entityToDto(category);
     }
 
     @Override
     public List<CategoryDTO> getAll() {
         return repository.findAll()
                 .stream()
-                .map(mapper::documentToDto)
+                .map(mapper::entityToDto)
                 .collect(Collectors.toList());
     }
 
@@ -49,9 +49,9 @@ public class CategoryServiceImpl implements ServiceCRUD<Long, CategoryForm, Cate
     public CategoryDTO delete(Long id) {
         Category category=repository.findById(id).orElseThrow(
                 ElementNotFoundException::new);
-        if(category.getProjects()!=null)throw new ElementNotFoundException();
+//        if(category.getProjects()!=null)throw new ElementNotFoundException();
         repository.delete(category);
-        return mapper.documentToDto(category);
+        return mapper.entityToDto(category);
     }
 
     @Override
@@ -66,7 +66,7 @@ public class CategoryServiceImpl implements ServiceCRUD<Long, CategoryForm, Cate
         category.setName(categoryForm.getName());
         category=repository.save(category);
 
-        return mapper.documentToDto(category);
+        return mapper.entityToDto(category);
     }
 
 }

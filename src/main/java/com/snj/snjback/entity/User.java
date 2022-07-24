@@ -1,4 +1,4 @@
-package com.snj.snjback.documents;
+package com.snj.snjback.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
-
 
 @Data
 @Builder
@@ -35,9 +34,9 @@ public class User {
     @JoinColumn(name = "address_id")
     private Address address;
 
-    @ManyToMany (mappedBy = "users", fetch = FetchType.LAZY)
-    private List<Project> projects;
-
-    @OneToMany(mappedBy = "donator")
-    private List<Donation> donation;
+//    @ManyToMany (mappedBy = "users", fetch = FetchType.LAZY)
+//    private List<Project> projects;
+//
+//    @OneToMany(mappedBy = "donator")
+//    private List<Donation> donation;
 }

@@ -1,4 +1,4 @@
-package com.snj.snjback.documents;
+package com.snj.snjback.entity;
 
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
@@ -7,7 +7,6 @@ import org.springframework.data.annotation.CreatedDate;
 import javax.persistence.*;
 import java.time.LocalDate;
 
-@Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor

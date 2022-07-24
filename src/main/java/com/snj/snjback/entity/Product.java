@@ -1,4 +1,4 @@
-package com.snj.snjback.documents;
+package com.snj.snjback.entity;
 
 import lombok.*;
 
@@ -7,7 +7,6 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
-@Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -33,7 +32,7 @@ public class Product {
     @ManyToOne
     private Type type;
 
-    @ManyToMany (mappedBy = "productList")
-    private List<Avantage> avantages;
+//    @ManyToMany (mappedBy = "productList")
+//    private List<Avantage> avantages;
 
 }

@@ -1,6 +1,6 @@
 package com.snj.snjback.repositories;
 
-import com.snj.snjback.documents.User;
+import com.snj.snjback.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

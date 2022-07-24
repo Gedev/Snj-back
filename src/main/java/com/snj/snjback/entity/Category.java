@@ -1,25 +1,25 @@
-package com.snj.snjback.documents;
+package com.snj.snjback.entity;
 
 import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
 
-
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Type {
+public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
     @Column
     @NonNull
-    private String nom;
+    private String name;
 
-    @OneToMany
-    private List<Product> product;
+//    @OneToMany
+//    private List<Project> projects;
+
 }

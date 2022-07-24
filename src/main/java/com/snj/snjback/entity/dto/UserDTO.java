@@ -1,4 +1,4 @@
-package com.snj.snjback.documents.dto;
+package com.snj.snjback.entity.dto;
 
 import lombok.Builder;
 import lombok.Data;
