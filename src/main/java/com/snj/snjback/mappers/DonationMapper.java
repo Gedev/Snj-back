@@ -1,7 +1,7 @@
 package com.snj.snjback.mappers;
 
-import com.snj.snjback.documents.Donation;
-import com.snj.snjback.documents.dto.DonationDTO;
+import com.snj.snjback.entity.Donation;
+import com.snj.snjback.entity.dto.DonationDTO;
 import com.snj.snjback.forms.DonationForm;
 import com.snj.snjback.forms.updateForms.DonationUpdateForm;
 import org.springframework.stereotype.Component;
@@ -19,7 +19,7 @@ public class DonationMapper implements Mapper<Donation, DonationDTO, DonationFor
                 .isCash(entity.isCash())
 //                .products(entity.getProducts())
 //                .projects(entity.getProjects())
-                .donator(entity.getDonator())
+//                .donator(entity.getDonator())
                 .build();
     }
 
@@ -34,7 +34,7 @@ public class DonationMapper implements Mapper<Donation, DonationDTO, DonationFor
                 .isCash(form.isCash())
 //                .products(form.getProducts())
 //                .projects(form.getProjects())
-                .donator(form.getDonator())
+//                .donator(form.getDonator())
                 .build();
     }
 
@@ -48,7 +48,7 @@ public class DonationMapper implements Mapper<Donation, DonationDTO, DonationFor
                 .isCash(form.isCash())
 //                .products(form.getProducts())
 //                .projects(form.getProjects())
-                .donator(form.getDonator())
+//                .donator(form.getDonator())
                 .build();
     }
 }

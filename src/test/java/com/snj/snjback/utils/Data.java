@@ -1,7 +1,7 @@
 package com.snj.snjback.utils;
 
-import com.snj.snjback.documents.Category;
-import com.snj.snjback.documents.dto.CategoryDTO;
+import com.snj.snjback.entity.Category;
+import com.snj.snjback.entity.dto.CategoryDTO;
 import com.snj.snjback.forms.CategoryForm;
 
 import java.util.ArrayList;

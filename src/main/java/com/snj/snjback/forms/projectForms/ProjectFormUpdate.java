@@ -6,4 +6,5 @@ import org.springframework.validation.annotation.Validated;
 @Data
 @Validated
 public class ProjectFormUpdate {
+    private String title;
 }
