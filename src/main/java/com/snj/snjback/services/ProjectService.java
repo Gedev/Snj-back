@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ProjectService implements ServiceCRUD<String, ProjectForm, ProjectFormUpdate, ProjectDTO> {
+public class ProjectService implements ServiceCRUD<Long, ProjectForm, ProjectFormUpdate, ProjectDTO> {
     @Override
     public ProjectDTO insert(ProjectForm toAdd) {
         return null;
@@ -21,17 +21,17 @@ public class ProjectService implements ServiceCRUD<String, ProjectForm, ProjectF
     }
 
     @Override
-    public ProjectDTO update(String id, ProjectFormUpdate form) {
+    public ProjectDTO update(Long id, ProjectFormUpdate form) {
         return null;
     }
 
     @Override
-    public DonationDTO delete(String id) {
+    public ProjectDTO delete(Long id) {
         return null;
     }
 
     @Override
-    public ProjectDTO getOne(String id) {
+    public ProjectDTO getOne(Long id) {
         return null;
     }
 }

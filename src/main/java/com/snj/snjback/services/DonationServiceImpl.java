@@ -8,9 +8,12 @@ import com.snj.snjback.forms.DonationForm;
 import com.snj.snjback.forms.updateForms.DonationUpdateForm;
 import com.snj.snjback.mappers.DonationMapper;
 import com.snj.snjback.repositories.DonationRepository;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class DonationServiceImpl implements DonationService{
     private final DonationRepository repository;
     private final DonationMapper mapper;
