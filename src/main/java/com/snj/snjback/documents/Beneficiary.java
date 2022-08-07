@@ -4,20 +4,30 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.bson.types.ObjectId;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+
+
+import javax.persistence.*;
+import java.util.List;
+
 
 @Data
 @Builder
-@Document
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
 public class Beneficiary {
+
     @Id
-    private ObjectId id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
+    @Column
     private String description;
+
+    @Column
     private long quantity;
 
-    private Product[] products;
+    @ManyToMany
+    private List<Product> products;
+
 }

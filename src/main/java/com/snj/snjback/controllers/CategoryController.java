@@ -35,8 +35,12 @@ public class CategoryController {
 
     }
     @PatchMapping(path = {"/update"},params = {"id"})
-    public ResponseEntity<CategoryDTO> update(@RequestParam String id, @Valid @RequestBody CategoryFormUpdate form){
+    public ResponseEntity<CategoryDTO> update(@RequestParam Long id, @Valid @RequestBody CategoryFormUpdate form){
         return ResponseEntity.ok(service.update(id,form));
 
+    }
+    @DeleteMapping(path = {"/delete"},params = {"id"})
+    public ResponseEntity<CategoryDTO> delete(@RequestParam Long id){
+        return ResponseEntity.ok(service.delete(id));
     }
 }

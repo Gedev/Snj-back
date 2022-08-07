@@ -1,18 +1,19 @@
 package com.snj.snjback.services;
 
-import com.snj.snjback.documents.dto.DonationDTO;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public interface ServiceCRUD<ID,FORM, FORMUPDATE,DTO>{
 
-    public DTO insert(FORM form) ;
+    DTO insert(FORM form) ;
 
-    public List<DTO> getAll();
+    List<DTO> getAll();
 
-    public DTO update(ID id, FORMUPDATE form);
+    DTO update(ID id, FORMUPDATE form);
 
-    public DTO getOne(ID id);
+    DTO getOne(ID id);
 
-    public DonationDTO delete(ID id);
+    DTO delete(ID id);
 }

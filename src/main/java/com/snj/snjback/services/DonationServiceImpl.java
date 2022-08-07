@@ -2,8 +2,8 @@ package com.snj.snjback.services;
 
 import com.snj.snjback.documents.Donation;
 import com.snj.snjback.documents.dto.DonationDTO;
-import com.snj.snjback.exceptions.ElementAlreadyExistsException;
-import com.snj.snjback.exceptions.ElementNotFoundException;
+import com.snj.snjback.exeption.ElementAlreadyExistsException;
+import com.snj.snjback.exeption.ElementNotFoundException;
 import com.snj.snjback.forms.DonationForm;
 import com.snj.snjback.forms.updateForms.DonationUpdateForm;
 import com.snj.snjback.mappers.DonationMapper;
@@ -31,7 +31,7 @@ public class DonationServiceImpl implements DonationService{
     }
 
     @Override
-    public DonationDTO getOne(String id) {
+    public DonationDTO getOne(Long id) {
         if (id == null)
             return null;
 
@@ -45,20 +45,20 @@ public class DonationServiceImpl implements DonationService{
     }
 
     @Override
-        public DonationDTO insert(DonationForm form) {
-        if (form == null)
-            return null;
+    public DonationDTO insert(DonationForm form) {
+    if (form == null)
+        return null;
 
-        if (repository.existsById(form.getId()))
-            throw new ElementAlreadyExistsException();
+    if (repository.existsById(form.getId()))
+        throw new ElementAlreadyExistsException("");
 
-        Donation toInsert = mapper.formToDocument(form);
+    Donation toInsert = mapper.formToDocument(form);
 
-        return mapper.documentToDTO(repository.insert(toInsert));
+    return mapper.documentToDTO(repository.save(toInsert));
     }
 
     @Override
-    public DonationDTO delete(String id) {
+    public DonationDTO delete(Long id) {
         if (id == null)
             return null;
 
@@ -74,7 +74,7 @@ public class DonationServiceImpl implements DonationService{
     }
 
     @Override
-    public DonationDTO update(String id, DonationUpdateForm form) {
+    public DonationDTO update(Long id, DonationUpdateForm form) {
         if (form == null)
             return null;
 
