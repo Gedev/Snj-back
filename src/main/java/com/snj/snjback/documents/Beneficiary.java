@@ -1,32 +1,33 @@
 package com.snj.snjback.documents;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
 import javax.persistence.*;
 import java.util.List;
+
 
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Messaging {
+public class Beneficiary {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
     @Column
-    @NonNull
-    private String title;
+    private String description;
 
     @Column
-    private boolean isOpen;
+    private long quantity;
 
-    @OneToOne (mappedBy = "messagingP")
-    private Project projectM;
-
-    @OneToMany
-    private List<Message> messages;
+    @ManyToMany
+    private List<Product> products;
 
 }

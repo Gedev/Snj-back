@@ -1,21 +1,25 @@
 package com.snj.snjback.documents;
 
 import lombok.*;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.ArrayList;
+import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Builder
-@Document
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
 public class Category {
     @Id
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
+    @Column
     @NonNull
     private String name;
-    private ArrayList<Project> projects;
+
+    @OneToMany
+    private List<Project> projects;
 
 }
